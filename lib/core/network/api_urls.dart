@@ -6,4 +6,6 @@ class ApiUrls {
       "$baseUrl/$endpoint?api_key=$apiKey";
 
   static const String nowPlayingMovies = "/movie/now_playing";
+  static const String popularMovies = "/movie/popular";
+  static const String topRatedMovies = "/movie/top_rated";
 }
