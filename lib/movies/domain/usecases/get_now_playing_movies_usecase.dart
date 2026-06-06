@@ -8,7 +8,7 @@ class GetNowPlayingMoviesUsecase {
 
   GetNowPlayingMoviesUsecase({required this.baseMovieRepository});
 
-  Future<Either<Failure,List<MovieEntity>>> excute() async {
+ Future<Either<Failure, List<MovieEntity>>> excute() async {
     return await baseMovieRepository.getNowPlayingMovies();
   }
 }

@@ -10,20 +10,17 @@ class MovieRepository implements BaseMovieRepository {
 
   MovieRepository({required this.datasource});
 
-  /*  @override
-   Future <List<MovieEntity>> getNowPlayingMovies() async {
-    return await datasource.getNowPlayingMovies();
-  } */
+   
 
-  @override
-  Future<Either<Failure, List<MovieEntity>>> getNowPlayingMovies() async {
-    final result = await datasource.getNowPlayingMovies();
-    try {
-      return Right(result);
-    } on ServerException catch (failure) {
-      return Left(ServerFailure(errorMessage: failure.errorMessageModel.statusMessage));
-    }
-  }
+   @override
+   Future<Either<Failure, List<MovieEntity>>> getNowPlayingMovies() async {
+     final result = await datasource.getNowPlayingMovies();
+     try {
+       return Right(result);
+     } on ServerException catch (failure) {
+       return Left(ServerFailure(errorMessage: failure.errorMessageModel.statusMessage));
+     }
+   }
 
   @override
   Future<Either<Failure, List<MovieEntity>>> getPopularMovies()async {
