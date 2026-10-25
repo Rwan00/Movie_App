@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/services/service_locator.dart';
 
 import 'package:movie_app/movies/presentation/controllers/movie_bloc.dart';
 import 'package:movie_app/movies/presentation/controllers/movie_events.dart';
@@ -10,14 +11,14 @@ class MoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     print("testtt22");
+    
     return BlocProvider(
-      create: (context) => MovieBloc()..add(GetNowPlayingMoviesEvent()),
+      create: (context) => MovieBloc(sl())..add(GetNowPlayingMoviesEvent()),
       lazy: false,
       child: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
           print(state);
-          print("testtt");
+         
           return Scaffold();
         },
       ),
